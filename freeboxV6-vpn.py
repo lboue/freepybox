@@ -30,7 +30,7 @@ print('VPN users: {0}'.format(fbx_vpn_users))
 pp.pprint(fbx_vpn_users)
 
 # POST /api/v6/vpn/user
-fbx_vpn_new_user = fbx.vpn.set_users()
+fbx_vpn_new_user = fbx.vpn.set_user()
 print('VPN new user: {0}'.format(fbx_vpn_new_user))
 
 # DELETE /api/v6/vpn/user/test
