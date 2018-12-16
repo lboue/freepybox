@@ -59,3 +59,11 @@ class Wifi:
         '''
         return self._access.get('wifi/ap/{0}/neighbors/'.format(ap_id))
 
+
+        def get_custom_key(self):
+        '''
+        Get wifi custom key list
+        '''
+        return self._access.get('wifi/custom_key/')
+
+
