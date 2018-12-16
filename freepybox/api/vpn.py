@@ -40,7 +40,7 @@ class Vpn:
         '''
         return self._access.get('vpn/user')
 
-    def set_users(self):
+    def set_user(self):
         '''
         Get a new VPN user
         '''
