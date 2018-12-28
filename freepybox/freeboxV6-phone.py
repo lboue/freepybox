@@ -16,7 +16,30 @@ fbx = Freepybox()
 # example for the first time
 fbx.open('mafreebox.freebox.fr', 80)
 
+
 # Extract phone config using connection API
+'''
+{
+   "network":"working",
+   "dect_eco_mode":false,
+   "dect_pin":"1234",
+   "dect_ring_pattern":1,
+   "dect_registration":false,
+   "dect_nemo_mode":true,
+   "dect_enabled":true,
+   "dect_ring_on_off":true
+}
+'''
+fbx_phone_config = fbx.phone.get_config()
+print("DECT Config:")
+print("DECT PIN: " + str(fbx_phone_config["dect_pin"]))
+print("\n")
+
+for key, value in fbx_phone_config.items():
+    print(key, ":", value)
+print("\n")
+
+# Extract phone status using connection API
 '''
 [   {   'gain_rx': 50,
         'gain_tx': 50,
@@ -38,8 +61,8 @@ fbx.open('mafreebox.freebox.fr', 80)
         'type_id': 1,
         'vendor': 'siemens_gigaset'}]
 '''
-fbx_phone_config = fbx.phone.get_config()
-for phone in fbx_phone_config:
+fbx_phone_status = fbx.phone.get_status()
+for phone in fbx_phone_status:
     print("Phone " + str(phone["id"]) + ", type: " + phone["type"])
     print("\t is_ringing: " + str(phone["is_ringing"]))
     print("\t on_hook: " + str(phone["on_hook"]))
